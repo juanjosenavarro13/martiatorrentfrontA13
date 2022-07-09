@@ -15,8 +15,12 @@ export class ArticuloHttpService {
     url: string
   ): Observable<carPaginateModel> {
     if (url == '') {
-      url = environment.apiUrl + '/articulo/' + tam;
+      url = environment.apiUrl + '/articulos/' + tam;
     }
     return this._http.get<carPaginateModel>(url);
+  }
+
+  public getArticulo(id: number): Observable<cardModel> {
+    return this._http.get<cardModel>(environment.apiUrl + '/articulo/' + id);
   }
 }

@@ -9,9 +9,11 @@ import { HeaderModule } from './modules/header/header.module';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
+import { ErrorComponent } from './pages/error/error.component';
+import { ArticulopageComponent } from './pages/articulopage/articulopage.component';
 
 @NgModule({
-  declarations: [AppComponent, HomepageComponent, CardComponent],
+  declarations: [AppComponent, HomepageComponent, CardComponent, ErrorComponent, ArticulopageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
