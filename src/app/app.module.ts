@@ -8,10 +8,17 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from './modules/header/header.module';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CardComponent } from './components/card/card.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, HomepageComponent, CardComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, HeaderModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    HeaderModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
