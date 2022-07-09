@@ -12,7 +12,5 @@ export class CardComponent implements OnInit {
     this.datosCard = [];
   }
 
-  ngOnInit(): void {
-    console.log('datos', this.datosCard);
-  }
+  ngOnInit(): void {}
 }
