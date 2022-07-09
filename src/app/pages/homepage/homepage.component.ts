@@ -33,6 +33,7 @@ export class HomepageComponent implements OnInit {
         if (error.status != 500) {
           console.log(error);
         }
+        this.loading = true;
       }
     );
   }

@@ -7,15 +7,16 @@
       <img src="{{ c.imagen }}" class="card-img-top" alt="{{ c.titulo }}" />
       <div class="card-body">
         <h5 class="card-title">{{ c.titulo }}</h5>
+        <small class="text-muted">Categoria: {{ c.categoria }}</small>
         <p class="card-text">
           {{ c.descripcion }}
         </p>
         <a class="btn btn-primary" routerLink="/articulo/{{ c.id }}">Ver</a>
-        <p class="card-text">
+        <!-- <p class="card-text">
           <small class="text-muted">{{
             c.created_at | date: "dd-MM-yyyy"
           }}</small>
-        </p>
+        </p> -->
       </div>
     </div>
   </div>

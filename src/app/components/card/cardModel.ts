@@ -5,6 +5,7 @@ export class cardModel {
     public descripcion: string,
     public imagen: string,
     public url: string,
+    public categoria: string,
     public created_at: string,
     public updated_at: string
   ) {}
