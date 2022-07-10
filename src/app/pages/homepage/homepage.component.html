@@ -6,9 +6,9 @@
         [(ngModel)]="tam"
         (change)="cambiarTam()"
       >
-        <option value="8">Ver: 8 artículos</option>
-        <option value="16">Ver: 16 artículos</option>
+        <option selected value="12">Ver: 12 artículos</option>
         <option value="24">Ver: 24 artículos</option>
+        <option value="48">Ver: 48 artículos</option>
       </select>
       <div class="card-body">
         <app-card [datosCard]="datosCard"></app-card>

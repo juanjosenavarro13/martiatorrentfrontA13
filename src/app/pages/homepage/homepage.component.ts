@@ -15,11 +15,11 @@ export class HomepageComponent implements OnInit {
   constructor(private _articuloService: ArticuloHttpService) {
     this.datosCard = [];
     this.loading = true;
-    this.tam = 8;
+    this.tam = 12;
   }
 
   ngOnInit(): void {
-    this.obtenerArticulos(8);
+    this.obtenerArticulos(this.tam);
   }
 
   private obtenerArticulos(tam: number, url = '') {
