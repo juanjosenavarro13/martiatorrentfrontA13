@@ -1,4 +1,29 @@
-<div *ngIf="articulo">
-  {{ articulo.id }} {{ articulo.titulo }}
-  <img src="{{ articulo.imagen }}" alt="" />
+<div class="card" *ngIf="articulo">
+  <div class="card-header text-center">
+    {{ articulo.created_at | date: "dd-MM-yyyy" }}
+    <small
+      ><a class="text-danger text-decoration-none" routerLink="/"
+        >Volver</a
+      ></small
+    >
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-3">
+        <img
+          class="rounded w-100"
+          src="{{ articulo.imagen }}"
+          alt="{{ articulo.titulo }}"
+        />
+        <h5 class="card-title">{{ articulo.titulo }}</h5>
+        <small class="text-muted">{{ articulo.descripcion }}</small>
+      </div>
+
+      <div class="col-9">
+        <p class="card-text">
+          {{ articulo.contenido }}
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
