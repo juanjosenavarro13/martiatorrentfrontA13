@@ -15,7 +15,7 @@ export class ArticuloHttpService {
     url: string
   ): Observable<articuloPaginateModel> {
     if (url == '') {
-      url = environment.apiUrl + '/articulos/' + tam;
+      url = environment.apiUrl + '/articulosPaginate/' + tam;
     }
     return this._http.get<articuloPaginateModel>(url);
   }
