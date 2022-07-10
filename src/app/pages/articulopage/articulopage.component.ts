@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { cardModel } from 'src/app/components/card/cardModel';
+import { articuloModel } from 'src/app/Models/cardModel';
+import { enlaceModel } from 'src/app/Models/enlaceModel';
 import { ArticuloHttpService } from 'src/app/services/articulo-http.service';
+import { EnlaceHttpService } from 'src/app/services/enlace-http.service';
 
 @Component({
   selector: 'app-articulopage',
@@ -10,12 +12,17 @@ import { ArticuloHttpService } from 'src/app/services/articulo-http.service';
 })
 export class ArticulopageComponent implements OnInit {
   id: number;
-  articulo!: cardModel;
+  articulo!: articuloModel;
+  enlaces: enlaceModel[];
+  tieneEnlaces: boolean;
   constructor(
     private rutaActiva: ActivatedRoute,
-    private articuloHttp: ArticuloHttpService
+    private articuloHttp: ArticuloHttpService,
+    private enlaceHttp: EnlaceHttpService
   ) {
     this.id = 0;
+    this.enlaces = [];
+    this.tieneEnlaces = false;
   }
 
   ngOnInit(): void {
@@ -23,12 +30,23 @@ export class ArticulopageComponent implements OnInit {
       this.id = params['id'];
     });
     this.obtenerArticulo(this.id);
+    this.obtenerEnlaces(this.id);
   }
 
   private obtenerArticulo(id: number) {
-    this.articuloHttp.getArticulo(id).subscribe((articulo: cardModel) => {
+    this.articuloHttp.getArticulo(id).subscribe((articulo: articuloModel) => {
       this.articulo = articulo;
-      console.log(this.articulo);
     });
+  }
+
+  private obtenerEnlaces(id: number) {
+    this.enlaceHttp
+      .obtenerEnlacesDelArticulo(id)
+      .subscribe((data: enlaceModel[]) => {
+        this.enlaces = data;
+        if (data.length > 0) {
+          this.tieneEnlaces = true;
+        }
+      });
   }
 }

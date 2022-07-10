@@ -1,4 +1,4 @@
-export class cardModel {
+export class articuloModel {
   constructor(
     public id: number,
     public titulo: string,
@@ -12,10 +12,10 @@ export class cardModel {
   ) {}
 }
 
-export class carPaginateModel {
+export class articuloPaginateModel {
   constructor(
     public current_page: number,
-    public data: cardModel[],
+    public data: articuloModel[],
     public first_page_url: string,
     public from: number,
     public last_page: number,

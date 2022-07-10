@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { cardModel, carPaginateModel } from 'src/app/components/card/cardModel';
+import { articuloModel, articuloPaginateModel } from 'src/app/Models/cardModel';
 import { ArticuloHttpService } from 'src/app/services/articulo-http.service';
 
 @Component({
@@ -8,8 +8,8 @@ import { ArticuloHttpService } from 'src/app/services/articulo-http.service';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-  paginate!: carPaginateModel;
-  datosCard: cardModel[];
+  paginate!: articuloPaginateModel;
+  datosCard: articuloModel[];
   loading: boolean;
   tam: number;
   constructor(private _articuloService: ArticuloHttpService) {

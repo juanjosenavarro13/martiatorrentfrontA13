@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { cardModel, carPaginateModel } from '../components/card/cardModel';
+import { articuloModel, articuloPaginateModel } from '../Models/cardModel';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,14 +13,16 @@ export class ArticuloHttpService {
   public getListaAticulos(
     tam: number,
     url: string
-  ): Observable<carPaginateModel> {
+  ): Observable<articuloPaginateModel> {
     if (url == '') {
       url = environment.apiUrl + '/articulos/' + tam;
     }
-    return this._http.get<carPaginateModel>(url);
+    return this._http.get<articuloPaginateModel>(url);
   }
 
-  public getArticulo(id: number): Observable<cardModel> {
-    return this._http.get<cardModel>(environment.apiUrl + '/articulo/' + id);
+  public getArticulo(id: number): Observable<articuloModel> {
+    return this._http.get<articuloModel>(
+      environment.apiUrl + '/articulo/' + id
+    );
   }
 }

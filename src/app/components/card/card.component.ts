@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { cardModel } from './cardModel';
+import { articuloModel } from '../../Models/cardModel';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +7,7 @@ import { cardModel } from './cardModel';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  @Input() datosCard: cardModel[];
+  @Input() datosCard: articuloModel[];
   constructor() {
     this.datosCard = [];
   }
