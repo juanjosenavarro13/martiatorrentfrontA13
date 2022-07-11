@@ -22,6 +22,33 @@
             >Inicio</a
           >
         </li>
+        <li class="nav-item dropdown" *ngFor="let c of categorias">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {{ c.nombre }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" routerLink="/categoria/{{ c.id }}">{{
+                c.nombre
+              }}</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li *ngFor="let s of subcategorias">
+              <a
+                class="dropdown-item"
+                routerLink="/subcategoria/{{ s.id }}"
+                *ngIf="s.id_categoria === c.id"
+                >{{ s.nombre }}</a
+              >
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
