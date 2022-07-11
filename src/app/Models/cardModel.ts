@@ -7,6 +7,7 @@ export class articuloModel {
     public url: string,
     public contenido: Text,
     public categoria: string,
+    public subcategoria: string,
     public created_at: string,
     public updated_at: string
   ) {}
