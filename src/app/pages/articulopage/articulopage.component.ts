@@ -40,14 +40,12 @@ export class ArticulopageComponent implements OnInit {
   }
 
   private obtenerEnlaces(id: number) {
-    this.enlaceHttp
-      .obtenerEnlacesDelArticulo(id)
-      .subscribe((data: enlaceModel[]) => {
-        this.enlaces = data;
-        if (data.length > 0) {
-          this.tieneEnlaces = true;
-        }
-      });
+    this.enlaceHttp.obtenerEnlacesDelArticulo(id).subscribe((data: enlaceModel[]) => {
+      this.enlaces = data;
+      if (data.length > 0) {
+        this.tieneEnlaces = true;
+      }
+    });
   }
 
   public sumarDescarga(id: number) {

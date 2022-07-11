@@ -1,10 +1,7 @@
 <div class="row mb-5" id="top">
   <div class="col-9">
     <div class="card row" *ngIf="!loading">
-      <select
-        class="form-select text-center col-6"
-        [(ngModel)]="tam"
-        (change)="cambiarTam()">
+      <select class="form-select text-center col-6" [(ngModel)]="tam" (change)="cambiarTam()">
         <option selected value="12">Ver: 12 artículos</option>
         <option value="24">Ver: 24 artículos</option>
         <option value="48">Ver: 48 artículos</option>
@@ -18,34 +15,19 @@
             <a class="page-link btn" (click)="changePage('primera')">Primera</a>
           </li>
           <li class="page-item" *ngIf="paginate.prev_page_url !== null">
-            <a
-              class="page-link btn"
-              href="#top"
-              (click)="changePage('anterior')"
-              >Anterior</a
-            >
+            <a class="page-link btn" href="#top" (click)="changePage('anterior')">Anterior</a>
           </li>
           <li class="page-item active">
             <a class="page-link btn" href="#top">{{ paginate.current_page }}</a>
           </li>
           <li class="page-item" *ngIf="paginate.next_page_url !== null">
-            <a
-              class="page-link btn"
-              href="#top"
-              (click)="changePage('siguiente')"
-              >Siguiente</a
-            >
+            <a class="page-link btn" href="#top" (click)="changePage('siguiente')">Siguiente</a>
           </li>
           <li class="page-item">
-            <a class="page-link btn" href="#top" (click)="changePage('ultima')"
-              >Ultima</a
-            >
+            <a class="page-link btn" href="#top" (click)="changePage('ultima')">Ultima</a>
           </li>
         </ul>
-        <small
-          >Total páginas: {{ paginate.last_page }}. Total articulos:
-          {{ paginate.total }}</small
-        >
+        <small>Total páginas: {{ paginate.last_page }}. Total articulos: {{ paginate.total }}</small>
       </nav>
     </div>
   </div>

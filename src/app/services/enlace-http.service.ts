@@ -11,20 +11,13 @@ export class EnlaceHttpService {
   constructor(private _http: HttpClient) {}
 
   public obtenerEnlacesDelArticulo(id: number): Observable<enlaceModel[]> {
-    return this._http.get<enlaceModel[]>(
-      environment.apiUrl + '/articulo/' + id + '/enlaces'
-    );
+    return this._http.get<enlaceModel[]>(environment.apiUrl + '/articulo/' + id + '/enlaces');
   }
 
   public masdescargado(): Observable<masdescargado[]> {
-    return this._http.get<masdescargado[]>(
-      environment.apiUrl + '/articulos/masdescargado'
-    );
+    return this._http.get<masdescargado[]>(environment.apiUrl + '/articulos/masdescargado');
   }
   public sumarDescarga(id: number): Observable<enlaceModel> {
-    return this._http.put<enlaceModel>(
-      environment.apiUrl + '/enlaceDescargado/' + id,
-      {}
-    );
+    return this._http.put<enlaceModel>(environment.apiUrl + '/enlaceDescargado/' + id, {});
   }
 }

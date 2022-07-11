@@ -10,10 +10,7 @@ import { Observable } from 'rxjs';
 export class ArticuloHttpService {
   constructor(private _http: HttpClient) {}
 
-  public getListaAticulos(
-    tam: number,
-    url: string
-  ): Observable<articuloPaginateModel> {
+  public getListaAticulos(tam: number, url: string): Observable<articuloPaginateModel> {
     if (url == '') {
       url = environment.apiUrl + '/articulosPaginate/' + tam;
     }
@@ -21,8 +18,6 @@ export class ArticuloHttpService {
   }
 
   public getArticulo(id: number): Observable<articuloModel> {
-    return this._http.get<articuloModel>(
-      environment.apiUrl + '/articulo/' + id
-    );
+    return this._http.get<articuloModel>(environment.apiUrl + '/articulo/' + id);
   }
 }

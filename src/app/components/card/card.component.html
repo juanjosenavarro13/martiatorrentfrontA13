@@ -1,14 +1,10 @@
 <div class="card-group">
   <div class="row text-center">
-    <div
-      class="card col-sm-12 col-md-6 col-lg-4 col-xl-3 p-0 mb-5"
-      *ngFor="let c of datosCard">
+    <div class="card col-sm-12 col-md-6 col-lg-4 col-xl-3 p-0 mb-5" *ngFor="let c of datosCard">
       <img src="{{ c.imagen }}" class="card-img-top" alt="{{ c.titulo }}" />
       <div class="card-body">
         <h5 class="card-title">{{ c.titulo }}</h5>
-        <small class="text-muted"
-          >{{ c.categoria }}: {{ c.subcategoria }}</small
-        >
+        <small class="text-muted">{{ c.categoria }}: {{ c.subcategoria }}</small>
         <p class="card-text">
           {{ c.descripcion }}
         </p>

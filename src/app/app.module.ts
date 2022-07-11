@@ -13,20 +13,8 @@ import { ErrorComponent } from './pages/error/error.component';
 import { ArticulopageComponent } from './pages/articulopage/articulopage.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomepageComponent,
-    CardComponent,
-    ErrorComponent,
-    ArticulopageComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    HeaderModule,
-  ],
+  declarations: [AppComponent, HomepageComponent, CardComponent, ErrorComponent, ArticulopageComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, HeaderModule],
   providers: [],
   bootstrap: [AppComponent],
 })

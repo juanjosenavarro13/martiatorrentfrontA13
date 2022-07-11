@@ -15,8 +15,6 @@ export class CategoriaHttpService {
   }
 
   public obtenerSubcategorias(id: number): Observable<subcategoriaModel[]> {
-    return this._http.get<subcategoriaModel[]>(
-      environment.apiUrl + '/subcategorias/' + id
-    );
+    return this._http.get<subcategoriaModel[]>(environment.apiUrl + '/subcategorias/' + id);
   }
 }

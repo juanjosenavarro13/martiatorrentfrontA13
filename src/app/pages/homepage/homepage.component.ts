@@ -15,10 +15,7 @@ export class HomepageComponent implements OnInit {
   enlaces: enlaceModel[];
   loading: boolean;
   tam: number;
-  constructor(
-    private _articuloService: ArticuloHttpService,
-    private _enlaceService: EnlaceHttpService
-  ) {
+  constructor(private _articuloService: ArticuloHttpService, private _enlaceService: EnlaceHttpService) {
     this.datosCard = [];
     this.enlaces = [];
     this.loading = true;

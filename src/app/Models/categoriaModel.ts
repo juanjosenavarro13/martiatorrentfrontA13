@@ -3,9 +3,5 @@ export class categoriaModel {
 }
 
 export class subcategoriaModel {
-  constructor(
-    public id: number,
-    public nombre: string,
-    public id_categoria: number
-  ) {}
+  constructor(public id: number, public nombre: string, public id_categoria: number) {}
 }
