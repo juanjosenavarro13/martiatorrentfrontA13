@@ -13,7 +13,13 @@ import { ErrorComponent } from './pages/error/error.component';
 import { ArticulopageComponent } from './pages/articulopage/articulopage.component';
 
 @NgModule({
-  declarations: [AppComponent, HomepageComponent, CardComponent, ErrorComponent, ArticulopageComponent],
+  declarations: [
+    AppComponent,
+    HomepageComponent,
+    CardComponent,
+    ErrorComponent,
+    ArticulopageComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

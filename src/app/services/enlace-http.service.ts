@@ -22,6 +22,9 @@ export class EnlaceHttpService {
     );
   }
   public sumarDescarga(id: number): Observable<enlaceModel> {
-    return this._http.put<enlaceModel>(environment.apiUrl+ '/enlaceDescargado/' + id, {});
+    return this._http.put<enlaceModel>(
+      environment.apiUrl + '/enlaceDescargado/' + id,
+      {}
+    );
   }
 }

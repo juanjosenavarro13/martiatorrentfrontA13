@@ -4,8 +4,7 @@
       <select
         class="form-select text-center col-6"
         [(ngModel)]="tam"
-        (change)="cambiarTam()"
-      >
+        (change)="cambiarTam()">
         <option selected value="12">Ver: 12 artículos</option>
         <option value="24">Ver: 24 artículos</option>
         <option value="48">Ver: 48 artículos</option>
@@ -18,7 +17,7 @@
           <li class="page-item">
             <a class="page-link btn" (click)="changePage('primera')">Primera</a>
           </li>
-          <li class="page-item" *ngIf="paginate.prev_page_url != null">
+          <li class="page-item" *ngIf="paginate.prev_page_url !== null">
             <a
               class="page-link btn"
               href="#top"
@@ -29,7 +28,7 @@
           <li class="page-item active">
             <a class="page-link btn" href="#top">{{ paginate.current_page }}</a>
           </li>
-          <li class="page-item" *ngIf="paginate.next_page_url != null">
+          <li class="page-item" *ngIf="paginate.next_page_url !== null">
             <a
               class="page-link btn"
               href="#top"
@@ -57,8 +56,7 @@
         <a
           *ngFor="let e of enlaces; let i = index"
           routerLink="articulo/{{ e.articulo_id }}"
-          class="text-decoration-none text-dark"
-        >
+          class="text-decoration-none text-dark">
           <li class="list-group-item">
             <font class="fw-bold">{{ i + 1 }}</font> - {{ e.titulo }}
             <a href=""></a>

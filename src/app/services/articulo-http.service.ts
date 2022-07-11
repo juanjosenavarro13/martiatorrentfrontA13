@@ -24,5 +24,5 @@ export class ArticuloHttpService {
     return this._http.get<articuloModel>(
       environment.apiUrl + '/articulo/' + id
     );
-  }    
+  }
 }

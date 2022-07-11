@@ -37,7 +37,7 @@ export class HomepageComponent implements OnInit {
         this.datosCard = resp.data;
         this.loading = false;
       },
-      (error) => {
+      error => {
         if (error.status != 500) {
           console.log(error);
         }
