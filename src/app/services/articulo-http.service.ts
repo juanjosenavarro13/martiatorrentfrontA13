@@ -14,6 +14,7 @@ export class ArticuloHttpService {
     if (url == '') {
       url = environment.apiUrl + '/articulosPaginate/' + tam;
     }
+    console.log(url);
     return this._http.get<articuloPaginateModel>(url);
   }
 

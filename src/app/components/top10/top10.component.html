@@ -1,0 +1,15 @@
+<div class="card" *ngIf="enlaces">
+  <div class="card-header">Top 10 Descargas</div>
+  <ul class="list-group list-group-flush">
+    <a
+      *ngFor="let e of enlaces; let i = index"
+      routerLink="articulo/{{ e.articulo_id }}"
+      class="text-decoration-none text-dark">
+      <li class="list-group-item">
+        <font class="fw-bold">{{ i + 1 }}</font> - {{ e.titulo }}
+        <a href=""></a>
+        <span class="badge rounded-pill bg-primary">{{ e.descargas }}</span>
+      </li>
+    </a>
+  </ul>
+</div>

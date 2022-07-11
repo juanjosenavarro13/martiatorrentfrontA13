@@ -1,0 +1,30 @@
+<div class="card row" id="top">
+  <select class="form-select text-center col-6" [(ngModel)]="tam" (change)="cambiarTam()">
+    <option selected value="12">Ver: 12 artículos</option>
+    <option value="24">Ver: 24 artículos</option>
+    <option value="48">Ver: 48 artículos</option>
+  </select>
+  <div class="card-body" *ngIf="datosCard">
+    <app-card [datosCard]="datosCard"></app-card>
+  </div>
+  <nav class="text-center">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link btn" (click)="cambiarPag('primera')">Primera</a>
+      </li>
+      <li class="page-item" *ngIf="paginate.prev_page_url !== null">
+        <a class="page-link btn" href="{{ urlActual }}#top" (click)="cambiarPag('anterior')">Anterior</a>
+      </li>
+      <li class="page-item active">
+        <a class="page-link btn" href="{{ urlActual }}#top">{{ paginate.current_page }}</a>
+      </li>
+      <li class="page-item" *ngIf="paginate.next_page_url !== null">
+        <a class="page-link btn" href="{{ urlActual }}#top" (click)="cambiarPag('siguiente')">Siguiente</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link btn" href="{{ urlActual }}#top" (click)="cambiarPag('ultima')">Ultima</a>
+      </li>
+    </ul>
+    <small>Total páginas: {{ paginate.last_page }}. Total articulos: {{ paginate.total }}</small>
+  </nav>
+</div>
