@@ -39,7 +39,7 @@
               <td>{{ e.titulo }}</td>
               <td>{{ e.idioma }}</td>
               <td>
-                <a class="text-decoration-none" href="{{ e.url }}">Descargar</a>
+                <a (click)="sumarDescarga(e.id)" class="text-decoration-none" target="_blank" href="{{ e.url }}">Descargar</a>
               </td>
               <td>{{ e.descargas }}</td>
             </tr>

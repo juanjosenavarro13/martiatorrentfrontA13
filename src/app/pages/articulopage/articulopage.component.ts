@@ -49,4 +49,11 @@ export class ArticulopageComponent implements OnInit {
         }
       });
   }
+
+  public sumarDescarga(id: number) {
+    this.enlaceHttp.sumarDescarga(id).subscribe((data: enlaceModel) => {
+      this.obtenerEnlaces(this.id);
+    }
+    );
+  }
 }
