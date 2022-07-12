@@ -12,7 +12,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" *ngIf="categorias">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLink="/" routerLinkActive="active">Inicio</a>
         </li>
@@ -39,6 +39,8 @@
           </ul>
         </li>
       </ul>
+      <!-- usuario -->
+      <app-menuusuario class="ms-auto"></app-menuusuario>
     </div>
   </div>
 </nav>

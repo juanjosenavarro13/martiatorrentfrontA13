@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderModule } from './modules/header/header.module';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
@@ -14,19 +13,23 @@ import { ArticulopageComponent } from './pages/articulopage/articulopage.compone
 import { PaginatecardsComponent } from './components/paginatecards/paginatecards.component';
 import { CategoriapageComponent } from './pages/categoriapage/categoriapage.component';
 import { Top10Component } from './components/top10/top10.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MenuusuarioComponent } from './components/menuusuario/menuusuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
     CardComponent,
-    ErrorComponent,
-    ArticulopageComponent,
     PaginatecardsComponent,
-    CategoriapageComponent,
     Top10Component,
+    HeaderComponent,
+    HomepageComponent,
+    ArticulopageComponent,
+    CategoriapageComponent,
+    ErrorComponent,
+    MenuusuarioComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, HeaderModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
