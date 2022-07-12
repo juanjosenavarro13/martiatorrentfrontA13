@@ -9,8 +9,8 @@
   </div>
   <nav class="text-center">
     <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link btn" (click)="cambiarPag('primera')">Primera</a>
+      <li class="page-item" *ngIf="paginate.prev_page_url !== null">
+        <a class="page-link btn" href="{{ urlActual }}#top" (click)="cambiarPag('primera')">Primera</a>
       </li>
       <li class="page-item" *ngIf="paginate.prev_page_url !== null">
         <a class="page-link btn" href="{{ urlActual }}#top" (click)="cambiarPag('anterior')">Anterior</a>
@@ -21,7 +21,7 @@
       <li class="page-item" *ngIf="paginate.next_page_url !== null">
         <a class="page-link btn" href="{{ urlActual }}#top" (click)="cambiarPag('siguiente')">Siguiente</a>
       </li>
-      <li class="page-item">
+      <li class="page-item" *ngIf="paginate.next_page_url !== null">
         <a class="page-link btn" href="{{ urlActual }}#top" (click)="cambiarPag('ultima')">Ultima</a>
       </li>
     </ul>

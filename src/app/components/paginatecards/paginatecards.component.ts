@@ -28,13 +28,15 @@ export class PaginatecardsComponent implements OnInit {
     this._articuloService.getListaAticulos(tam, url).subscribe((resp: any) => {
       this.paginate = resp;
       this.datosCard = resp.data;
-      console.log(resp);
     });
   }
 
   public cambiarTam() {
-    console.log(this.tam);
-    console.log(this.url);
+    if (this.url != '') {
+      this.url.split('/');
+      let ta = this.url.split('/').pop();
+      this.url = this.url.replace(ta!, this.tam.toString());
+    }
     this.obtenerArticulos(this.tam, this.url);
   }
 
