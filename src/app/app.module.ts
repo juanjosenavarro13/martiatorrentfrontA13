@@ -15,6 +15,7 @@ import { CategoriapageComponent } from './pages/categoriapage/categoriapage.comp
 import { Top10Component } from './components/top10/top10.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuusuarioComponent } from './components/menuusuario/menuusuario.component';
+import { RegistropageComponent } from './pages/registropage/registropage.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MenuusuarioComponent } from './components/menuusuario/menuusuario.compo
     CategoriapageComponent,
     ErrorComponent,
     MenuusuarioComponent,
+    RegistropageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
