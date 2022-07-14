@@ -21,5 +21,5 @@ jobs:
           node-version: 16
       - run: npm install
         name: install dependencies
-      - run: npm test:prod
+      - run: npm run test:prod
         name: test production
