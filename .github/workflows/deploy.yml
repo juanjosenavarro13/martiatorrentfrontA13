@@ -23,11 +23,10 @@ jobs:
           npm run build
 
       - name: 📂 Sync files
-
-        uses: airvzxf/ftp-deployment-action@latest
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: './web'
-          delete: 'true'
+          server-dir: /web/
+          local-dir: /web/
