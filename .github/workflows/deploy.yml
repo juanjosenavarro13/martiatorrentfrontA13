@@ -23,9 +23,11 @@ jobs:
           npm run build
 
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+
+        uses: airvzxf/ftp-deployment-action@latest
         with:
-          server: gesimar127c1.multiplika.net
-          username: gesimargesiline
-          password: 52295936p
-          server-dir: /web/
+          server: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_dir: './web'
+          delete: 'true'
