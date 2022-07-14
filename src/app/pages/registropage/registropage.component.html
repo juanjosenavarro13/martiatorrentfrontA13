@@ -1,13 +1,148 @@
 <div class="row g-3 align-items-center">
-  <form>
-    <div class="col-auto">
-      <label for="email" class="col-form-label">Email</label>
-    </div>
-    <div class="col-auto">
-      <input type="email" class="form-control" />
-    </div>
-    <div class="col-auto">
-      <span class="form-text"> Debe de ser tipo email@email.es. </span>
+  <form #formRegistro="ngForm" (ngSubmit)="registro(formRegistro.value)">
+    <div class="row">
+      <div class="col-6">
+        <div class="col-auto">
+          <label for="email" class="col-form-label">Email</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="email"
+            class="form-control"
+            [ngClass]="{
+              'border-danger': email.invalid && email.touched
+            }"
+            [ngClass]="{ 'border-success': email.valid && email.touched }"
+            name="email"
+            ngModel
+            #email="ngModel"
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+        </div>
+        <div class="col-auto" *ngIf="email.invalid && email.touched">
+          <span class="form-text text-danger"> *Debe de ser tipo email@email.es. </span>
+        </div>
+
+        <div class="col-auto">
+          <label for="password" class="col-form-label">Contraseña</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="password"
+            class="form-control"
+            [ngClass]="{
+              'border-danger': (password.invalid && password.touched) || password.value !== password_confirmation.value
+            }"
+            [ngClass]="{
+              'border-success': password.valid && password.touched && password.value === password_confirmation.value
+            }"
+            name="password"
+            ngModel
+            #password="ngModel"
+            minlength="6"
+            required />
+        </div>
+        <div
+          class="col-auto"
+          *ngIf="(password.invalid && password.touched) || password.value !== password_confirmation.value">
+          <span class="form-text text-danger">
+            *La contraseña es obligatoria y deben de ser identicas. 6 caracteres</span
+          >
+        </div>
+
+        <div class="col-auto">
+          <label for="password" class="col-form-label">Confirmar Contraseña</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="password"
+            class="form-control"
+            [ngClass]="{
+              'border-danger':
+                (password_confirmation.invalid && password_confirmation.touched) ||
+                password_confirmation.value !== password.value
+            }"
+            [ngClass]="{
+              'border-success':
+                password_confirmation.valid &&
+                password_confirmation.touched &&
+                password.value === password_confirmation.value
+            }"
+            name="password_confirmation"
+            ngModel
+            #password_confirmation="ngModel"
+            minlength="6"
+            required />
+        </div>
+        <div
+          class="col-auto"
+          *ngIf="
+            (password_confirmation.invalid && password_confirmation.touched) ||
+            password_confirmation.value !== password.value
+          ">
+          <span class="form-text text-danger">
+            *La contraseña es obligatoria y deben de ser identicas. 6 caracteres
+          </span>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="col-auto">
+          <label for="nick" class="col-form-label">Nick</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="text"
+            class="form-control"
+            ngModel
+            name="nick"
+            #nick="ngModel"
+            required
+            [ngClass]="{ 'border-success': nick.valid && nick.touched }" />
+        </div>
+        <div class="col-auto" *ngIf="nick.touched && nick.invalid">
+          <span class="form-text text-danger"> *Campo obligatorio. </span>
+        </div>
+
+        <div class="col-auto">
+          <label for="nombre" class="col-form-label">Nombre</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="text"
+            class="form-control"
+            ngModel
+            name="nombre"
+            #nombre="ngModel"
+            required
+            [ngClass]="{ 'border-success': nombre.valid && nombre.touched }" />
+        </div>
+        <div class="col-auto" *ngIf="nombre.touched && nombre.invalid">
+          <span class="form-text text-danger"> *Campo obligatorio. </span>
+        </div>
+
+        <div class="col-auto">
+          <label for="apellidos" class="col-form-label">Apellidos</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="text"
+            class="form-control"
+            ngModel
+            name="apellidos"
+            #apellidos="ngModel"
+            required
+            [ngClass]="{ 'border-success': apellidos.valid && apellidos.touched }" />
+        </div>
+        <div class="col-auto" *ngIf="apellidos.touched && apellidos.invalid">
+          <span class="form-text text-danger"> *Campo obligatorio. </span>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary mt-3"
+          [disabled]="formRegistro.invalid || password.value !== password_confirmation.value">
+          Registrar
+        </button>
+      </div>
     </div>
   </form>
 </div>
