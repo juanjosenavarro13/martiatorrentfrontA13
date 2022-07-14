@@ -1,4 +1,4 @@
-name: Build and lint:prod
+name: Build and lint MASTER
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
         name: use node 16
         with:
           node-version: 16
-      - run: npm install
+      - run: npm install --no-audit --no-fund --no-optional
         name: install dependencies
       - run: npm run test:prod
         name: test production
