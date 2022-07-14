@@ -29,4 +29,3 @@ jobs:
           username: gesimargesiline
           password: 52295936p
           server-dir: /web/
-          local-dir: /deploy/
