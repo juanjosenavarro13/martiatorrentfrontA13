@@ -1,20 +1,26 @@
-name: Build and deploy
+name: Node.js CI
+
 on:
   push:
-    branches: [master]
+    branches: ['master']
+  pull_request:
+    branches: ['master']
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node: 16
-    name: Node 16
+        node-version: [16.x]
+
     steps:
       - uses: actions/checkout@v3
-      - name: Setup node
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
       - run: npm ci
+      - run: npm run build --if-present
       - run: npm test
