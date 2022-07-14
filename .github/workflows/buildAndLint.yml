@@ -2,9 +2,9 @@ name: Build and lint:prod
 
 on:
   push:
-    branches: ['master, develop, release/*, feature/*']
+    branches: ['master']
   pull_request:
-    branches: ['master, develop, release/*, feature/*']
+    branches: ['master']
 
 jobs:
   build:
