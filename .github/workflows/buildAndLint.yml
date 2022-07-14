@@ -21,5 +21,8 @@ jobs:
           node-version: 16
       - run: npm install --no-audit --no-fund --no-optional
         name: install dependencies
-      - run: npm run test:prod
-        name: test production
+      - run: npm run lint
+        name: lint
+      - run: npm run build
+        name: build
+      - run: npm run test
