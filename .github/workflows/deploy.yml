@@ -4,16 +4,17 @@ on:
     branches: [master]
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.4
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: 16
+    name: Node 16
     steps:
       - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-      - name: Install dependencies
-        run: npm install
-      - name: Lint
-        run: npm run lint:prod
+          node-version: 16
+      - run: npm ci
+      - run: npm test
