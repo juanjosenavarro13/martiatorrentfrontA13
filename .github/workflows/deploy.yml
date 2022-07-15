@@ -36,9 +36,3 @@ jobs:
           state-name: sync-state.json
           dangerous-clean-slate: true
           log-level: verbose
-        uses: appleboy/ssh-action@master
-        with:
-          username: ${{ secrets.FTP_USERNAME }}
-          host: ${{ secrets.FTP_SERVER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          script: 'cd /var/www/html/frontend && ./deploy.sh'
