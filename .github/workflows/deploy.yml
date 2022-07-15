@@ -33,3 +33,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /frontend/
+          state-name: /frontend/.sync-state.json
+          dangerous-clean-slate: true
