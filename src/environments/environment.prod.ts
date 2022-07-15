@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:8000/api',
+  apiUrl: 'http://51.83.47.199/backend/public/api',
   titleApp: 'Martitorrent',
 };
