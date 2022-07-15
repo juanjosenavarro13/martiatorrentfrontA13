@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      declarations: [AppComponent],
+      declarations: [AppComponent]
     });
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
@@ -19,7 +20,7 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`title has default value`, () => {
-    expect(component.title).toEqual(`martiatorrentfrontA13`);
+  it(`titleApp has default value`, () => {
+    expect(component.titleApp).toEqual(environment.titleApp);
   });
 });
