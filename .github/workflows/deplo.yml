@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-lint:
-    name: 🎉 test and lint
+    name: 🎉 deploy
     runs-on: ubuntu-latest
 
     strategy:
