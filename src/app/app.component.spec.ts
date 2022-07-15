@@ -10,7 +10,7 @@ describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      declarations: [AppComponent]
+      declarations: [AppComponent],
     });
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
