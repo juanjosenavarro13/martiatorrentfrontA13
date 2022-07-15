@@ -17,6 +17,10 @@ jobs:
         with:
           node-version: '16'
 
+      - run: npm ci
+      - run: npm run test:prod
+      - run: npm run lint
+
       - name: 🔨 Build Project
         run: |
           npm install
