@@ -10,25 +10,43 @@ import { EnlaceHttpService } from 'src/app/services/enlace-http.service';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-  paginate!: articuloPaginateModel;
-  datosCard: articuloModel[];
   enlaces: enlaceModel[];
+  articulos: articuloPaginateModel;
   tam: number;
   constructor(private _articuloService: ArticuloHttpService, private _enlaceService: EnlaceHttpService) {
-    this.datosCard = [];
     this.enlaces = [];
-    this.tam = 12;
+    this.articulos = {} as articuloPaginateModel;
+    this.tam = 8;
   }
 
   ngOnInit(): void {
-    this.obtenerArticulos(this.tam);
     this.obtenermasdescargado();
+    this.obtenerArticulos(this.tam);
   }
 
-  private obtenerArticulos(tam: number, url = '') {
+  public cambiarTamPag() {
+    this.obtenerArticulos(this.tam);
+  }
+
+  public paginacion(accion: string) {
+    if (accion === 'siguiente') {
+      this.obtenerArticulos(this.tam, this.articulos.next_page_url);
+    }
+    if (accion === 'anterior') {
+      this.obtenerArticulos(this.tam, this.articulos.prev_page_url);
+    }
+    if (accion === 'primera') {
+      this.obtenerArticulos(this.tam, this.articulos.first_page_url);
+    }
+    if (accion === 'ultima') {
+      this.obtenerArticulos(this.tam, this.articulos.last_page_url);
+    }
+  }
+
+  private obtenerArticulos(tam: number, url?) {
     this._articuloService.getListaAticulos(tam, url).subscribe((resp: any) => {
-      this.paginate = resp;
-      this.datosCard = resp.data;
+      this.articulos = resp;
+      console.log(this.articulos.data);
     });
   }
 

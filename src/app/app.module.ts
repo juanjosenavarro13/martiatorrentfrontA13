@@ -10,7 +10,6 @@ import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './pages/error/error.component';
 import { ArticulopageComponent } from './pages/articulopage/articulopage.component';
-import { PaginatecardsComponent } from './components/paginatecards/paginatecards.component';
 import { CategoriapageComponent } from './pages/categoriapage/categoriapage.component';
 import { Top10Component } from './components/top10/top10.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,7 +20,6 @@ import { RegistropageComponent } from './pages/registropage/registropage.compone
   declarations: [
     AppComponent,
     CardComponent,
-    PaginatecardsComponent,
     Top10Component,
     HeaderComponent,
     HomepageComponent,

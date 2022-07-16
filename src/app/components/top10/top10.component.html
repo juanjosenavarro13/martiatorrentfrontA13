@@ -6,8 +6,7 @@
       routerLink="articulo/{{ e.id_articulo }}"
       class="text-decoration-none text-dark">
       <li class="list-group-item">
-        <font class="fw-bold">{{ i + 1 }}</font> - {{ e.titulo }}
-        <span class="badge rounded-pill bg-primary">{{ e.descargas }}</span>
+        <span class="badge rounded-pill bg-primary">{{ e.descargas }}</span> {{ e.titulo }}
       </li>
     </a>
   </ul>

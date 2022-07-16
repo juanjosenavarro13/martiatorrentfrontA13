@@ -12,7 +12,5 @@ export class MenuusuarioComponent implements OnInit {
     this.logeado = this.usuarioService.logeado;
   }
 
-  ngOnInit(): void {
-    console.log(this.logeado);
-  }
+  ngOnInit(): void {}
 }

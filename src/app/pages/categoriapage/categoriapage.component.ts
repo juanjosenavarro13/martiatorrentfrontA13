@@ -31,7 +31,7 @@ export class CategoriapageComponent implements OnInit {
   ngOnInit(): void {}
 
   private obtenerArticulos(tam: number, url: string) {
-    this._articuloHttp.getListaAticulos(tam, url).subscribe(data => {
+    this._articuloHttp.getListaAticulos(tam).subscribe(data => {
       this.paginate = data;
       this.datosCard = data.data;
     });
