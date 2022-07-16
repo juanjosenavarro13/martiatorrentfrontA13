@@ -1,12 +1,12 @@
 <div class="row mb-5">
-  <div class="col-9">
+  <div class="col-xl-9 mb-5">
     <app-paginatecards
       *ngIf="datosCard && paginate"
       [datosCard]="datosCard"
       [paginate]="paginate"
       [tam]="tam"></app-paginatecards>
   </div>
-  <div class="col-3">
+  <div class="col-xl-3">
     <app-top10 *ngIf="enlaces" [enlaces]="enlaces"></app-top10>
   </div>
 </div>
