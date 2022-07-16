@@ -34,4 +34,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /var/www/html/frontend/
           state-name: sync-state.json
-          dangerous-clean-slate: true

@@ -6,5 +6,11 @@ rm /var/www/html/*.html
 rm /var/www/html/*.js
 rm /var/www/html/*.css
 
+# generar nueva build
+cd /var/www/html/frontend/
+sudo npm install
+sudo npm update
+sudo npm run build
+
 # copiar la nueva build
 cp /var/www/html/frontend/dist/martiatorrentfront-a13/* /var/www/html/
