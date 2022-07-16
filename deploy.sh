@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sudo -k
-echo SF4uZzd4QS8u | sudo -v -S
 
 # eliminar archivos antiguos
 rm /var/www/html/*.ico
