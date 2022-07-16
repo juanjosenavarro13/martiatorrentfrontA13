@@ -34,3 +34,17 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /var/www/html/frontend/
           state-name: sync-state.json
+
+      - name: ssh pipelines
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        env:
+          WELCOME: 'ssh scp ssh pipelines'
+        with:
+          host: ${{ secrets.SSH_SERVER }}
+          user: ${{ secrets.SSH_USERNAME }}
+          pass: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          connect_timeout: 10s
+          first_ssh: |
+            sudo su
+            sh /var/www/html/backend_tmp/deploy.sh
