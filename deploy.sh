@@ -1,4 +1,7 @@
 #!/bin/bash
+
+sudo su
+
 # eliminar archivos antiguos
 rm /var/www/html/*.ico
 rm /var/www/html/*.txt
