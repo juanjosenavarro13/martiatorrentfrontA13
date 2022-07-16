@@ -5,7 +5,7 @@ export class enlaceModel {
     public url: string,
     public descargas: number,
     public idioma: string,
-    public articulo_id: number,
+    public id_articulo: number,
     public created_at: string,
     public updated_at: string
   ) {}
@@ -15,7 +15,7 @@ export class masdescargado {
   constructor(
     public descargas: number,
     public titulo: string,
-    public articulo_id: number,
+    public id_articulo: number,
     public updated_at: string,
     public created_at: string
   ) {}
