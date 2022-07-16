@@ -16,15 +16,8 @@ export class RegistropageComponent implements OnInit {
   ngOnInit(): void {}
 
   public registro(usuario: usuarioModel) {
-    console.log(usuario);
-    this.usuarioHttp.registro(usuario).subscribe(
-      data => {
-        console.log(data);
-        alert('registro correcto');
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.usuarioHttp.registro(usuario).subscribe(data => {
+      alert('registro correcto');
+    });
   }
 }
