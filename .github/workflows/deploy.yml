@@ -35,14 +35,14 @@ jobs:
           server-dir: /var/www/html/frontend/
           state-name: sync-state.json
 
-      - name: ssh pipelines
-        uses: cross-the-world/ssh-pipeline@master
-        env:
-          WELCOME: 'ssh pipeline'
-        with:
-          host: ${{ secrets.SSH_SERVER }}
-          user: ${{ secrets.SSH_USERNAME }}
-          pass: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            sudo sh /var/www/html/frontend/deploy.sh
+      # - name: ssh pipelines
+      #   uses: cross-the-world/ssh-pipeline@master
+      #   env:
+      #     WELCOME: 'ssh pipeline'
+      #   with:
+      #     host: ${{ secrets.SSH_SERVER }}
+      #     user: ${{ secrets.SSH_USERNAME }}
+      #     pass: ${{ secrets.SSH_PASSWORD }}
+      #     port: ${{ secrets.SSH_PORT }}
+      #     script: |
+      #       sudo sh /var/www/html/frontend/deploy.sh
