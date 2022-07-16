@@ -45,5 +45,4 @@ jobs:
           pass: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            echo ${{ secrets.SSH_PASSWORD }} | sudo su
-            echo nice
+            sh /var/www/html/frontend/deploy.sh
