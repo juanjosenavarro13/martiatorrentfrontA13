@@ -18,7 +18,7 @@ jobs:
           node-version: '16.16.0'
 
       - run: npm ci
-      - run: npm run test:prod
+      # - run: npm run test:prod
       - run: npm run lint
 
       - name: 🔨 Build Project

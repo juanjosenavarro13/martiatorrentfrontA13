@@ -9,10 +9,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class MenuusuarioComponent implements OnInit {
   logeado: boolean;
   constructor(private usuarioService: UsuarioService) {
-    this.logeado = this.usuarioService.logeado;
+    this.logeado = this.usuarioService.getLogeado();
   }
 
-  ngOnInit(): void {
-    console.log(this.logeado);
-  }
+  ngOnInit(): void {}
 }

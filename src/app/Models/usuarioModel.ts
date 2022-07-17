@@ -21,3 +21,7 @@ export class usuarioRegistroModel {
     public usuario?: usuarioModel
   ) {}
 }
+
+export class usuarioLoginModel {
+  constructor(public status: string, public code: number, public msg: string, public usuario?: usuarioModel) {}
+}

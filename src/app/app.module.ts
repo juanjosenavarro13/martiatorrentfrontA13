@@ -6,22 +6,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './pages/error/error.component';
 import { ArticulopageComponent } from './pages/articulopage/articulopage.component';
-import { PaginatecardsComponent } from './components/paginatecards/paginatecards.component';
 import { CategoriapageComponent } from './pages/categoriapage/categoriapage.component';
 import { Top10Component } from './components/top10/top10.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuusuarioComponent } from './components/menuusuario/menuusuario.component';
 import { RegistropageComponent } from './pages/registropage/registropage.component';
+import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent,
-    PaginatecardsComponent,
     Top10Component,
     HeaderComponent,
     HomepageComponent,
@@ -30,6 +27,7 @@ import { RegistropageComponent } from './pages/registropage/registropage.compone
     ErrorComponent,
     MenuusuarioComponent,
     RegistropageComponent,
+    LoginpageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

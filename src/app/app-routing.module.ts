@@ -1,3 +1,4 @@
+import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticulopageComponent } from './pages/articulopage/articulopage.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'articulo/:id', component: ArticulopageComponent },
   { path: 'categoria/:id', component: CategoriapageComponent },
+  { path: 'login', component: LoginpageComponent },
   { path: 'registro', component: RegistropageComponent },
   { path: '**', component: ErrorComponent },
 ];

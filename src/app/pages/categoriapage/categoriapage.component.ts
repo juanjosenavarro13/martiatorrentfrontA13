@@ -11,29 +11,43 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./categoriapage.component.scss'],
 })
 export class CategoriapageComponent implements OnInit {
-  idCategoria: number;
+  idCat: number;
+  articulos: articuloPaginateModel;
   tam: number;
-  url: string;
-  paginate!: articuloPaginateModel;
-  datosCard: articuloModel[];
   constructor(private rutaActive: ActivatedRoute, private _articuloHttp: ArticuloHttpService) {
-    this.idCategoria = this.rutaActive.snapshot.params['id'];
-    this.tam = 12;
-    this.datosCard = [];
-    this.url = '';
-    this.rutaActive.params.subscribe(params => {
-      this.idCategoria = params['id'];
-      this.url = environment.apiUrl + '/categoria/' + this.idCategoria + '/' + this.tam;
-      this.obtenerArticulos(this.tam, this.url);
+    this.idCat = this.rutaActive.snapshot.params['id'];
+    this.tam = 8;
+    this.articulos = {} as articuloPaginateModel;
+    this.rutaActive.params.subscribe(data => {
+      this.idCat = data['id'];
+      this.obtenerArticulos(this.idCat, this.tam);
     });
   }
 
   ngOnInit(): void {}
 
-  private obtenerArticulos(tam: number, url: string) {
-    this._articuloHttp.getListaAticulos(tam, url).subscribe(data => {
-      this.paginate = data;
-      this.datosCard = data.data;
+  public paginacion(accion: string) {
+    if (accion === 'siguiente') {
+      this.obtenerArticulos(this.idCat, this.tam, this.articulos.next_page_url);
+    }
+    if (accion === 'anterior') {
+      this.obtenerArticulos(this.idCat, this.tam, this.articulos.prev_page_url);
+    }
+    if (accion === 'primera') {
+      this.obtenerArticulos(this.idCat, this.tam, this.articulos.first_page_url);
+    }
+    if (accion === 'ultima') {
+      this.obtenerArticulos(this.idCat, this.tam, this.articulos.last_page_url);
+    }
+  }
+
+  public cambiarTamPag() {
+    this.obtenerArticulos(this.idCat, this.tam);
+  }
+
+  private obtenerArticulos(idCat: number = this.idCat, tam: number = this.tam, url?) {
+    this._articuloHttp.getArticulosByCat(idCat, tam, url).subscribe((resp: any) => {
+      this.articulos = resp;
     });
   }
 }

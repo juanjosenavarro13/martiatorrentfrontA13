@@ -1,3 +1,4 @@
+import { usuarioLoginModel } from './../Models/usuarioModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,5 +13,9 @@ export class UsuarioHttpService {
 
   public registro(usuario: usuarioModel): Observable<usuarioRegistroModel> {
     return this._http.post<usuarioRegistroModel>(environment.apiUrl + '/usuarios/registro', usuario);
+  }
+
+  public login(usuario: usuarioModel): Observable<usuarioLoginModel> {
+    return this._http.post<usuarioLoginModel>(environment.apiUrl + '/usuarios/login', usuario);
   }
 }
