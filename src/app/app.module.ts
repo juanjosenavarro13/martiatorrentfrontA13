@@ -14,6 +14,7 @@ import { Top10Component } from './components/top10/top10.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuusuarioComponent } from './components/menuusuario/menuusuario.component';
 import { RegistropageComponent } from './pages/registropage/registropage.component';
+import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { RegistropageComponent } from './pages/registropage/registropage.compone
     ErrorComponent,
     MenuusuarioComponent,
     RegistropageComponent,
+    LoginpageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
