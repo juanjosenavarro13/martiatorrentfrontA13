@@ -46,7 +46,6 @@ export class HomepageComponent implements OnInit {
   private obtenerArticulos(tam: number, url?) {
     this._articuloService.getListaAticulos(tam, url).subscribe((resp: any) => {
       this.articulos = resp;
-      console.log(this.articulos.data);
     });
   }
 
