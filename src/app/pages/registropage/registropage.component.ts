@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { usuarioModel } from 'src/app/Models/usuarioModel';
 import { UsuarioHttpService } from 'src/app/services/usuario-http.service';
@@ -12,8 +13,8 @@ export class RegistropageComponent implements OnInit {
   registrado: boolean;
   registradoError: boolean;
   error: any;
-  constructor(private usuarioHttp: UsuarioHttpService) {
-    this.usuario = new usuarioModel(0, '', '', '', '', '', '', '', '');
+  constructor(private usuarioHttp: UsuarioHttpService, private router: Router) {
+    this.usuario = {} as usuarioModel;
     this.registrado = false;
     this.registradoError = false;
   }
@@ -25,6 +26,9 @@ export class RegistropageComponent implements OnInit {
       data => {
         this.registrado = true;
         this.registradoError = false;
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 2000);
       },
       error => {
         this.registradoError = true;

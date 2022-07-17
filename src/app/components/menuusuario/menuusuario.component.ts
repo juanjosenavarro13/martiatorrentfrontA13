@@ -39,4 +39,7 @@ export class MenuusuarioComponent implements OnInit {
       error => {}
     );
   }
+  logout() {
+    this.usuarioService.logOut();
+  }
 }
