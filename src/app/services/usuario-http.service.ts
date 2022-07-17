@@ -11,11 +11,15 @@ import { usuarioModel, usuarioRegistroModel } from '../Models/usuarioModel';
 export class UsuarioHttpService {
   constructor(private _http: HttpClient) {}
 
-  public registro(usuario: usuarioModel): Observable<usuarioRegistroModel> {
+  registro(usuario: usuarioModel): Observable<usuarioRegistroModel> {
     return this._http.post<usuarioRegistroModel>(environment.apiUrl + '/usuarios/registro', usuario);
   }
 
-  public login(usuario: usuarioModel): Observable<usuarioLoginModel> {
+  login(usuario: usuarioModel): Observable<usuarioLoginModel> {
     return this._http.post<usuarioLoginModel>(environment.apiUrl + '/usuarios/login', usuario);
+  }
+
+  loginAuth(usuario: any): any {
+    return this._http.post(environment.apiUrl + '/usuarios/loginAuth', usuario);
   }
 }

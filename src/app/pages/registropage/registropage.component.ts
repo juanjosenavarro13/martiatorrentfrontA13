@@ -30,7 +30,6 @@ export class RegistropageComponent implements OnInit {
         this.registradoError = true;
         this.registrado = false;
         this.error = error;
-        console.log(error);
       }
     );
   }
