@@ -1,3 +1,4 @@
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { data } from 'jquery';
 import { UsuarioHttpService } from 'src/app/services/usuario-http.service';
 import { usuarioModel } from 'src/app/Models/usuarioModel';
@@ -12,7 +13,7 @@ export class LoginpageComponent implements OnInit {
   logeado: boolean;
   logeadoerror: boolean;
   error: any;
-  constructor(private _usuarioHttp: UsuarioHttpService) {
+  constructor(private _usuarioHttp: UsuarioHttpService, private _usuarioService: UsuarioService) {
     this.logeado = false;
     this.logeadoerror = false;
   }
@@ -25,6 +26,7 @@ export class LoginpageComponent implements OnInit {
         console.log('data', data);
         this.logeado = true;
         this.logeadoerror = false;
+        this._usuarioService.setUsuario(data.usuario!);
       },
       error => {
         console.log('error', error);
