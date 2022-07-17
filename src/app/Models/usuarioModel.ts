@@ -17,11 +17,11 @@ export class usuarioRegistroModel {
     public status: string,
     public code: number,
     public msg: string,
-    public msgError?: any,
-    public usuario?: usuarioModel
+    public usuario: usuarioModel,
+    public msgError?: any
   ) {}
 }
 
 export class usuarioLoginModel {
-  constructor(public status: string, public code: number, public msg: string, public usuario?: usuarioModel) {}
+  constructor(public status: string, public code: number, public msg: string, public usuario: usuarioModel) {}
 }
