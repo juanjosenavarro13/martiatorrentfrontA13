@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './pages/error/error.component';
 import { ArticulopageComponent } from './pages/articulopage/articulopage.component';
@@ -19,7 +18,6 @@ import { RegistropageComponent } from './pages/registropage/registropage.compone
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent,
     Top10Component,
     HeaderComponent,
     HomepageComponent,
