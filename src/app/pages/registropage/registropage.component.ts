@@ -12,7 +12,6 @@ export class RegistropageComponent implements OnInit {
   usuario: usuarioModel;
   registrado: boolean;
   registradoError: boolean;
-  error: any;
   constructor(private usuarioHttp: UsuarioHttpService, private router: Router) {
     this.usuario = {} as usuarioModel;
     this.registrado = false;
@@ -33,7 +32,6 @@ export class RegistropageComponent implements OnInit {
       error => {
         this.registradoError = true;
         this.registrado = false;
-        this.error = error;
       }
     );
   }

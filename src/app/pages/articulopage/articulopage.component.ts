@@ -12,7 +12,7 @@ import { EnlaceHttpService } from 'src/app/services/enlace-http.service';
 })
 export class ArticulopageComponent implements OnInit {
   id: number;
-  articulo!: articuloModel;
+  articulo: articuloModel;
   enlaces: enlaceModel[];
   tieneEnlaces: boolean;
   constructor(
@@ -20,6 +20,7 @@ export class ArticulopageComponent implements OnInit {
     private articuloHttp: ArticuloHttpService,
     private enlaceHttp: EnlaceHttpService
   ) {
+    this.articulo = {} as articuloModel;
     this.id = 0;
     this.enlaces = [];
     this.tieneEnlaces = false;

@@ -1,10 +1,10 @@
-<div class="row g-3 align-items-center">
+<div class="row g-3 justify-content-center">
   <div *ngIf="logeado" class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Bienvenid@!</strong> has iniciado sesion correctamente.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   <div *ngIf="logeadoerror" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Lo sentimos!</strong> no has podido iniciar sesion correctamente. {{ error.error.msgError }}
+    <strong>Lo sentimos!</strong> no has podido iniciar sesion correctamente.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   <form #formLogin="ngForm" (ngSubmit)="login(formLogin.value)">

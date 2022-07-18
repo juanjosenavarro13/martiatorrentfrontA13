@@ -1,48 +1,50 @@
-<div class="col-xl-12 mb-5 row text-center">
-  <!-- tam -->
-  <select class="form-select mb-2 text-center" [(ngModel)]="tam" (change)="cambiarTamPag()">
-    <option value="8">8 articulos por página</option>
-    <option value="16">16 articulos por página</option>
-    <option value="32">32 articulos por página</option>
-  </select>
-  <!-- endtam -->
-  <!-- card -->
-  <div class="card col-sm-12 col-md-6 col-lg-4 col-xl-3 p-0 mb-3" *ngFor="let a of articulos.data">
-    <img class="card-img-top" src="{{ a.imagen }}" alt="Madyson Durgan" />
-    <div class="card-body">
-      <h5 _ class="card-title">{{ a.titulo }}</h5>
-      <small class="text-muted">{{ a.categoria }} ~ {{ a.subcategoria }}</small>
-      <p class="card-text">
-        {{ a.descripcion }}
-      </p>
-      <a class="btn btn-primary" routerLink="/articulo/{{ a.id }}">Ver</a>
+<div class="row mb-5 justify-content-center" *ngIf="articulos">
+  <div class="col-xl-12 mb-5 row text-center">
+    <!-- tam -->
+    <select class="form-select mb-2 text-center" [(ngModel)]="tam" (change)="cambiarTamPag()">
+      <option value="8">8 articulos por página</option>
+      <option value="16">16 articulos por página</option>
+      <option value="32">32 articulos por página</option>
+    </select>
+    <!-- endtam -->
+    <!-- card -->
+    <div class="card col-sm-12 col-md-6 col-lg-4 col-xl-3 p-0 mb-3" *ngFor="let a of articulos.data">
+      <img class="card-img-top" src="{{ a.imagen }}" alt="Madyson Durgan" />
+      <div class="card-body">
+        <h5 _ class="card-title">{{ a.titulo }}</h5>
+        <small class="text-muted">{{ a.categoria }} ~ {{ a.subcategoria }}</small>
+        <p class="card-text">
+          {{ a.descripcion }}
+        </p>
+        <a class="btn btn-primary" routerLink="/articulo/{{ a.id }}">Ver</a>
+      </div>
     </div>
+    <!-- endcard -->
+    <!-- paginacion -->
+    <nav aria-label="Page navigation" *ngIf="articulos">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" (click)="paginacion('primera')">
+            <span>&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item" *ngIf="articulos.prev_page_url">
+          <a class="page-link" href="#top" (click)="paginacion('anterior')">Anterior</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link btn">{{ articulos.current_page }}</a>
+        </li>
+        <li class="page-item" *ngIf="articulos.next_page_url">
+          <a class="page-link" href="#top" (click)="paginacion('siguiente')">Siguiente</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#top" (click)="paginacion('ultima')">
+            <span>&raquo;</span>
+          </a>
+        </li>
+      </ul>
+      Tenemos un total de {{ articulos.total }} articulos. {{ articulos.last_page }} páginas disponibles.
+    </nav>
+    <!-- end paginacion -->
   </div>
-  <!-- endcard -->
-  <!-- paginacion -->
-  <nav aria-label="Page navigation" *ngIf="articulos">
-    <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link" href="/categoria/{{ idCat }}#top" (click)="paginacion('primera')">
-          <span>&laquo;</span>
-        </a>
-      </li>
-      <li class="page-item" *ngIf="articulos.prev_page_url">
-        <a class="page-link" href="/categoria/{{ idCat }}#top" (click)="paginacion('anterior')">Anterior</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link btn">{{ articulos.current_page }}</a>
-      </li>
-      <li class="page-item" *ngIf="articulos.next_page_url">
-        <a class="page-link" href="/categoria/{{ idCat }}#top" (click)="paginacion('siguiente')">Siguiente</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="/categoria/{{ idCat }}#top" (click)="paginacion('ultima')">
-          <span>&raquo;</span>
-        </a>
-      </li>
-    </ul>
-    Tenemos un total de {{ articulos.total }} articulos. {{ articulos.last_page }} páginas disponibles.
-  </nav>
-  <!-- end paginacion -->
 </div>

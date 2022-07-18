@@ -7,10 +7,15 @@ export class articuloModel {
     public url: string,
     public contenido: string,
     public categoria: string,
-    public subcategoria: string,
     public created_at: string,
-    public updated_at: string
+    public updated_at: string,
+    public subcategorias?: subcategoriasModel[],
+    public subcategoria?: string
   ) {}
+}
+
+export class subcategoriasModel {
+  constructor(public id: number, public nombre: string, public created_at: string, public updated_at: string) {}
 }
 
 export class articuloPaginateModel {

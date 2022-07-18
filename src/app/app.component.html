@@ -1,6 +1,12 @@
-<title>{{ titleApp }}</title>
-<app-header></app-header>
+<div *ngIf="!mantenimiento">
+  <title>{{ titleApp }}</title>
+  <app-header></app-header>
 
-<div class="container mt-5">
-  <router-outlet></router-outlet>
+  <div class="container mt-5">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<div *ngIf="mantenimiento">
+  <h1>mantenimiento</h1>
 </div>

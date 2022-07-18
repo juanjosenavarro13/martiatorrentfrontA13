@@ -1,10 +1,10 @@
-<div class="row g-3 align-items-center">
+<div class="row g-3 justify-content-center">
   <div *ngIf="registrado" class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Bienvenid@!</strong> te has registrado correctamente.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   <div *ngIf="registradoError" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Lo sentimos!</strong> no has podido registrarte correctamente. {{ error.error.msgError.email }}
+    <strong>Lo sentimos!</strong> no has podido registrarte correctamente.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   <form #formRegistro="ngForm" (ngSubmit)="registro(formRegistro.value)">

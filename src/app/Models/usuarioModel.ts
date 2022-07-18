@@ -23,5 +23,5 @@ export class usuarioRegistroModel {
 }
 
 export class usuarioLoginModel {
-  constructor(public status: string, public code: number, public msg: string, public usuario: usuarioModel) {}
+  constructor(public access_token: string, public token_type: string, public expires_in: number) {}
 }

@@ -22,23 +22,14 @@ export class MenuusuarioComponent implements OnInit {
     this.usuarioService.usuario$.subscribe(usuario => {
       this.usuario = usuario;
     });
-
-    let userlocal = localStorage.getItem('usuario');
-    let user = {};
-    if (userlocal) {
-      user = {
-        email: JSON.parse(userlocal).email,
-        passwordAuth: '130597',
-      };
-    }
-    this.usuarioService.loginAuth(user).subscribe(
-      data => {
-        this.usuarioService.setUsuario(data.usuario);
+    if (localStorage.getItem('access_token')) {
+      this.usuarioService.perfil().subscribe(data => {
+        this.usuarioService.setUsuario(data);
         this.usuarioService.login();
-      },
-      error => {}
-    );
+      });
+    }
   }
+
   logout() {
     this.usuarioService.logOut();
   }

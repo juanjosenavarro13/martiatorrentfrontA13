@@ -19,17 +19,21 @@ export class UsuarioService {
     this.logeado.next(true);
   }
 
+  setLocalStorage(token: string) {
+    localStorage.setItem('access_token', token);
+  }
+
   logOut() {
     this.logeado.next(false);
-    localStorage.removeItem('usuario');
+    localStorage.removeItem('access_token');
   }
 
   setUsuario(usuario: usuarioModel) {
     this.usuario.next(usuario);
-    localStorage.setItem('usuario', JSON.stringify(usuario));
   }
 
-  loginAuth(usuario: any): Observable<any> {
-    return this._usuarioHttp.loginAuth(usuario);
+  perfil(): Observable<usuarioModel> {
+    let token = localStorage.getItem('access_token');
+    return this._usuarioHttp.perfil(token!);
   }
 }
