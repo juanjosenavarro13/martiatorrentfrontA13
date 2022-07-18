@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 export class LoginpageComponent implements OnInit {
   logeado: boolean;
   logeadoerror: boolean;
-  error: any;
   constructor(
     private _usuarioHttp: UsuarioHttpService,
     private _usuarioService: UsuarioService,
@@ -31,7 +30,11 @@ export class LoginpageComponent implements OnInit {
         this.logeado = true;
         this.logeadoerror = false;
         this._usuarioService.login();
-        this._usuarioService.setUsuario(data.usuario);
+        this._usuarioService.setLocalStorage(data.access_token);
+        this._usuarioService.perfil().subscribe(data => {
+          this._usuarioService.setUsuario(data);
+        });
+
         setTimeout(() => {
           this.router.navigate(['/']);
         }, 2000);
@@ -39,7 +42,6 @@ export class LoginpageComponent implements OnInit {
       error => {
         this.logeadoerror = true;
         this.logeado = false;
-        this.error = error;
         this._usuarioService.logOut();
       }
     );
