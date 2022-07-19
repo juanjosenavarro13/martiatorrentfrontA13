@@ -1,6 +1,6 @@
 import { nombreCat } from './../../Models/categoriaModel';
 import { ArticuloHttpService } from './../../services/articulo-http.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { articuloPaginateModel } from './../../Models/cardModel';
 import { Component, OnInit } from '@angular/core';
 import { CategoriaHttpService } from 'src/app/services/categoria-http.service';
@@ -15,13 +15,16 @@ export class SubcategoriapageComponent implements OnInit {
   articulos: articuloPaginateModel;
   tam: number;
   nombreCategoria: string;
+  loading: boolean;
   constructor(
     private rutaActive: ActivatedRoute,
     private _articuloHttp: ArticuloHttpService,
-    private _categoriaHttp: CategoriaHttpService
+    private _categoriaHttp: CategoriaHttpService,
+    private router: Router
   ) {
     this.idCat = this.rutaActive.snapshot.params['id'];
     this.tam = 8;
+    this.loading = false;
     this.nombreCategoria = '';
     this.articulos = {} as articuloPaginateModel;
     this.rutaActive.params.subscribe(data => {
@@ -54,6 +57,10 @@ export class SubcategoriapageComponent implements OnInit {
     this._articuloHttp.getArticulosBySubcat(idCat, tam, url).subscribe((resp: any) => {
       this.articulos = resp;
       this.getNombreSubategoria(idCat);
+      this.loading = true;
+      if (resp.data.length === 0) {
+        this.router.navigate(['/']);
+      }
     });
   }
 

@@ -13,14 +13,17 @@ export class HomepageComponent implements OnInit {
   enlaces: enlaceModel[];
   articulos: articuloPaginateModel;
   tam: number;
+  loading: boolean;
+  loadingTop: boolean;
   constructor(private _articuloService: ArticuloHttpService, private _enlaceService: EnlaceHttpService) {
     this.enlaces = [];
     this.articulos = {} as articuloPaginateModel;
     this.tam = 8;
+    this.loading = false;
+    this.loadingTop = false;
   }
 
   ngOnInit(): void {
-    this.obtenermasdescargado();
     this.obtenerArticulos(this.tam);
   }
 
@@ -46,12 +49,15 @@ export class HomepageComponent implements OnInit {
   private obtenerArticulos(tam: number, url?) {
     this._articuloService.getListaAticulos(tam, url).subscribe((resp: any) => {
       this.articulos = resp;
+      this.obtenermasdescargado();
+      this.loading = true;
     });
   }
 
   private obtenermasdescargado() {
     this._enlaceService.masdescargado().subscribe((data: any) => {
       this.enlaces = data;
+      this.loadingTop = true;
     });
   }
 }

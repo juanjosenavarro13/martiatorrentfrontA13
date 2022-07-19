@@ -1,5 +1,5 @@
-<h1 *ngIf="nombreCategoria" class="text-center display-5">{{ nombreCategoria }}</h1>
-<div class="row mb-5 justify-content-center" *ngIf="articulos">
+<h1 *ngIf="nombreCategoria && loading" class="text-center display-5">{{ nombreCategoria }}</h1>
+<div class="row mb-5 justify-content-center" *ngIf="articulos && loading">
   <div class="col-xl-12 mb-5 row text-center">
     <!-- tam -->
     <select class="form-select mb-2 text-center" [(ngModel)]="tam" (change)="cambiarTamPag()">
