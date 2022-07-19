@@ -9,14 +9,14 @@
     <!-- endtam -->
     <!-- card -->
     <div class="card col-sm-12 col-md-6 col-lg-4 col-xl-3 p-0 mb-3" *ngFor="let a of articulos.data">
-      <img class="card-img-top" src="{{ a.imagen }}" alt="Madyson Durgan" />
+      <a routerLink="/articulo/{{ a.id }}"><img class="card-img-top" src="{{ a.imagen }}" alt="{{ a.titulo }}" /></a>
       <div class="card-body">
         <h5 _ class="card-title">{{ a.titulo }}</h5>
         <small class="text-muted">{{ a.categoria }} ~ {{ a.subcategoria }}</small>
         <p class="card-text">
           {{ a.descripcion }}
         </p>
-        <a class="btn btn-primary" routerLink="/articulo/{{ a.id }}">Ver</a>
+        <a class="btn btn-outline-primary" routerLink="/articulo/{{ a.id }}">Ver</a>
       </div>
     </div>
     <!-- endcard -->
