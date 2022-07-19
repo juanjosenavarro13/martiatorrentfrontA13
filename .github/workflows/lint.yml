@@ -1,4 +1,4 @@
-name: TEST AND LINT
+name: LINT
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: 🎉 test and lint
+    name: 🎉 lint
     runs-on: ubuntu-latest
 
     strategy:
