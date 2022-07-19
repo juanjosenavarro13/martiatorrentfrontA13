@@ -1,8 +1,9 @@
 <app-spinner *ngIf="!articulo || !loading"></app-spinner>
 <div class="card mb-5" *ngIf="articulo && loading">
   <div class="card-header text-center">
-    {{ articulo.created_at | date: 'dd-MM-yyyy' }}
-    <small><a class="text-danger text-decoration-none" routerLink="/">Volver</a></small>
+    <!-- {{ articulo.created_at | date: 'dd-MM-yyyy' }}
+    <small><a class="text-danger text-decoration-none" routerLink="/">Volver</a></small> -->
+    Valoracion: 7.5 (en desarrollo)
   </div>
   <div class="card-body">
     <div class="row">
@@ -10,8 +11,12 @@
         <img class="rounded w-100" src="{{ articulo.imagen }}" alt="{{ articulo.titulo }}" />
         <h5 class="card-title">{{ articulo.titulo }}</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item fw-bold">{{ articulo.categoria }}</li>
-          <li class="list-group-item" *ngFor="let s of articulo.subcategorias">{{ s.nombre }}</li>
+          <li class="list-group-item fw-bold">
+            <a routerLink="/categoria/{{ articulo.id_categoria }}">{{ articulo.categoria }}</a>
+          </li>
+          <li class="list-group-item" *ngFor="let s of articulo.subcategorias">
+            <a routerLink="/subcategoria/{{ s.id }}">{{ s.nombre }}</a>
+          </li>
         </ul>
         <small class="text-muted">{{ articulo.descripcion }}</small>
       </div>

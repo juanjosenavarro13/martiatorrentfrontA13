@@ -9,6 +9,8 @@ export class articuloModel {
     public categoria: string,
     public created_at: string,
     public updated_at: string,
+    public id_categoria: number,
+    public id_subcategoria: number,
     public subcategorias?: subcategoriasModel[],
     public subcategoria?: string
   ) {}

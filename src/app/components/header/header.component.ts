@@ -12,10 +12,12 @@ export class HeaderComponent implements OnInit {
   nameApp: string;
   categorias: categoriaModel[];
   subcategorias: subcategoriaModel[];
+  loading: boolean;
   constructor(private _global: GlobalService, private categoriaHttp: CategoriaHttpService) {
     this.nameApp = this._global.nameApp;
     this.categorias = [];
     this.subcategorias = [];
+    this.loading = false;
   }
 
   ngOnInit(): void {
@@ -28,6 +30,7 @@ export class HeaderComponent implements OnInit {
       data.forEach(element => {
         this.obtenerSubcategorias(element.id);
       });
+      this.loading = true;
     });
   }
 

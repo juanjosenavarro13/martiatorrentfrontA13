@@ -12,7 +12,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav" *ngIf="categorias">
+      <app-spinner *ngIf="!categorias || !loading"></app-spinner>
+      <ul class="navbar-nav" *ngIf="categorias && loading">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLink="/" routerLinkActive="active">Inicio</a>
         </li>
@@ -40,7 +41,7 @@
         </li>
       </ul>
       <!-- usuario -->
-      <app-menuusuario></app-menuusuario>
+      <app-menuusuario *ngIf="loading"></app-menuusuario>
     </div>
   </div>
 </nav>
