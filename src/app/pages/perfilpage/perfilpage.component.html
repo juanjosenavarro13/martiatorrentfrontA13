@@ -1,4 +1,5 @@
 <div class="row g-3 justify-content-center">
+  <div class="alert alert-success" *ngIf="update">Datos actualizados correctamente</div>
   <form #formPerfil="ngForm" (ngSubmit)="perfilUpdate(formPerfil.value)">
     <div class="row">
       <div class="col-6">
@@ -6,7 +7,13 @@
           <label for="email" class="col-form-label">Email</label>
         </div>
         <div class="col-auto">
-          <input type="email" class="form-control" name="email" [(ngModel)]="usuario.email" #email="ngModel" disabled />
+          <input type="email" class="form-control" value="{{ usuario.email }}" disabled />
+        </div>
+        <div class="col-auto">
+          <label for="email" class="col-form-label">Rol</label>
+        </div>
+        <div class="col-auto">
+          <input type="text" class="form-control" value="{{ usuario.rol }}" disabled />
         </div>
       </div>
       <div class="col-6">
@@ -23,6 +30,7 @@
             required
             [ngClass]="{ 'border-success': nick.valid && nick.touched }" />
         </div>
+
         <div class="col-auto" *ngIf="nick.touched && nick.invalid">
           <span class="form-text text-danger"> *Campo obligatorio. </span>
         </div>
