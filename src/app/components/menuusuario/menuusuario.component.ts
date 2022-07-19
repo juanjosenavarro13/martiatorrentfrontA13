@@ -10,9 +10,11 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class MenuusuarioComponent implements OnInit {
   logeado: boolean;
   usuario: usuarioModel;
+  loading: boolean;
   constructor(private usuarioService: UsuarioService) {
     this.usuario = {} as usuarioModel;
     this.logeado = false;
+    this.loading = false;
   }
 
   ngOnInit(): void {
@@ -25,6 +27,7 @@ export class MenuusuarioComponent implements OnInit {
     if (localStorage.getItem('access_token')) {
       this.usuarioService.perfil().subscribe(
         data => {
+          this.loading = true;
           this.usuarioService.setUsuario(data);
           this.usuarioService.login();
         },
@@ -32,6 +35,8 @@ export class MenuusuarioComponent implements OnInit {
           localStorage.removeItem('access_token');
         }
       );
+    } else {
+      this.loading = true;
     }
   }
 
