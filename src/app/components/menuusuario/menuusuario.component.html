@@ -1,7 +1,7 @@
 <ul class="navbar-nav mb-2 mb-lg-0">
   <li class="nav-item dropdown" *ngIf="logeado">
     <a
-      class="nav-link dropdown-toggle"
+      class="nav-link dropdown-toggle text-dark fw-bold"
       href="#"
       id="navbarDropdown"
       role="button"
@@ -13,14 +13,20 @@
       <li><a class="dropdown-item" href="#">Perfil</a></li>
       <li><a class="dropdown-item" href="#">Historial</a></li>
       <li><hr class="dropdown-divider" /></li>
+      <li>
+        <a class="dropdown-item text-bg-danger" routerLink="/admin" *ngIf="usuario.rol === 'administrador'"
+          >Administracion</a
+        >
+      </li>
+      <li><hr class="dropdown-divider" *ngIf="usuario.rol === 'administrador'" /></li>
       <li><a class="dropdown-item" href="#" (click)="logout()">Salir</a></li>
     </ul>
   </li>
 
   <li class="nav-item" *ngIf="!logeado">
-    <a class="nav-link" routerLink="/login">Iniciar sesión</a>
+    <a class="nav-link text-dark fw-bold" routerLink="/login">Iniciar sesión</a>
   </li>
   <li class="nav-item" *ngIf="!logeado">
-    <a class="nav-link" routerLink="/registro">registrarse</a>
+    <a class="nav-link text-dark fw-bold" routerLink="/registro">registrarse</a>
   </li>
 </ul>
