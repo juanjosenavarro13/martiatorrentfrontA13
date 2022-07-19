@@ -1,6 +1,8 @@
 <h1 *ngIf="nombreCategoria && loading" class="text-center display-5">{{ nombreCategoria }}</h1>
-<div class="row mb-5 justify-content-center" *ngIf="articulos && loading">
-  <div class="col-xl-12 mb-5 row text-center">
+<app-spinner *ngIf="!nombreCategoria"></app-spinner>
+<app-spinner *ngIf="!articulos && !loading"></app-spinner>
+<div class="row mb-5 justify-content-center">
+  <div class="col-xl-12 mb-5 row text-center" *ngIf="articulos && loading">
     <!-- tam -->
     <select class="form-select mb-2 text-center" [(ngModel)]="tam" (change)="cambiarTamPag()">
       <option value="8">8 articulos por página</option>

@@ -1,5 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { articuloModel, articuloPaginateModel } from 'src/app/Models/cardModel';
+import { Component, OnInit } from '@angular/core';
+import { articuloPaginateModel } from 'src/app/Models/cardModel';
 import { enlaceModel } from 'src/app/Models/enlaceModel';
 import { ArticuloHttpService } from 'src/app/services/articulo-http.service';
 import { EnlaceHttpService } from 'src/app/services/enlace-http.service';

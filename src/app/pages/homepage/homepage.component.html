@@ -1,5 +1,5 @@
-<div class="row mb-5 justify-content-center" *ngIf="articulos && loading">
-  <div class="col-xl-9 mb-5 row text-center">
+<div class="row mb-5 justify-content-center">
+  <div class="col-xl-9 mb-5 row text-center" *ngIf="articulos && loading">
     <!-- tam -->
     <select class="form-select mb-2 text-center" [(ngModel)]="tam" (change)="cambiarTamPag()">
       <option value="8">8 articulos por página</option>
@@ -48,6 +48,9 @@
     <!-- end paginacion -->
   </div>
   <div class="col-xl-3">
-    <app-top10 *ngIf="enlaces && loadingTop" [enlaces]="enlaces"></app-top10>
+    <div *ngIf="enlaces && loadingTop">
+      <app-top10 [enlaces]="enlaces"></app-top10>
+    </div>
+    <app-spinner *ngIf="!enlaces || !loadingTop"></app-spinner>
   </div>
 </div>
