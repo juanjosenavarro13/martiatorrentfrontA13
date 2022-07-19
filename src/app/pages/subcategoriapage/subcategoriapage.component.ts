@@ -1,7 +1,9 @@
+import { nombreCat } from './../../Models/categoriaModel';
 import { ArticuloHttpService } from './../../services/articulo-http.service';
 import { ActivatedRoute } from '@angular/router';
 import { articuloPaginateModel } from './../../Models/cardModel';
 import { Component, OnInit } from '@angular/core';
+import { CategoriaHttpService } from 'src/app/services/categoria-http.service';
 
 @Component({
   selector: 'app-subcategoriapage',
@@ -12,9 +14,15 @@ export class SubcategoriapageComponent implements OnInit {
   idCat: number;
   articulos: articuloPaginateModel;
   tam: number;
-  constructor(private rutaActive: ActivatedRoute, private _articuloHttp: ArticuloHttpService) {
+  nombreCategoria: string;
+  constructor(
+    private rutaActive: ActivatedRoute,
+    private _articuloHttp: ArticuloHttpService,
+    private _categoriaHttp: CategoriaHttpService
+  ) {
     this.idCat = this.rutaActive.snapshot.params['id'];
     this.tam = 8;
+    this.nombreCategoria = '';
     this.articulos = {} as articuloPaginateModel;
     this.rutaActive.params.subscribe(data => {
       this.idCat = data['id'];
@@ -45,6 +53,13 @@ export class SubcategoriapageComponent implements OnInit {
   private obtenerArticulos(idCat: number = this.idCat, tam: number = this.tam, url?) {
     this._articuloHttp.getArticulosBySubcat(idCat, tam, url).subscribe((resp: any) => {
       this.articulos = resp;
+      this.getNombreSubategoria(idCat);
+    });
+  }
+
+  private getNombreSubategoria(idCat: number) {
+    this._categoriaHttp.obtenerSubcategoriaNombre(idCat).subscribe((data: nombreCat) => {
+      this.nombreCategoria = data.nombre;
     });
   }
 }

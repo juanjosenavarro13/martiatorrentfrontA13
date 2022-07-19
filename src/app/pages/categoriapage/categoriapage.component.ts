@@ -1,9 +1,9 @@
+import { CategoriaHttpService } from 'src/app/services/categoria-http.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { data } from 'jquery';
-import { articuloModel, articuloPaginateModel } from 'src/app/Models/cardModel';
+import { articuloPaginateModel } from 'src/app/Models/cardModel';
 import { ArticuloHttpService } from 'src/app/services/articulo-http.service';
-import { environment } from 'src/environments/environment';
+import { nombreCat } from 'src/app/Models/categoriaModel';
 
 @Component({
   selector: 'app-categoriapage',
@@ -14,9 +14,15 @@ export class CategoriapageComponent implements OnInit {
   idCat: number;
   articulos: articuloPaginateModel;
   tam: number;
-  constructor(private rutaActive: ActivatedRoute, private _articuloHttp: ArticuloHttpService) {
+  nombreCategoria: string;
+  constructor(
+    private rutaActive: ActivatedRoute,
+    private _articuloHttp: ArticuloHttpService,
+    private _categoriaHttp: CategoriaHttpService
+  ) {
     this.idCat = this.rutaActive.snapshot.params['id'];
     this.tam = 8;
+    this.nombreCategoria = '';
     this.articulos = {} as articuloPaginateModel;
     this.rutaActive.params.subscribe(data => {
       this.idCat = data['id'];
@@ -48,6 +54,13 @@ export class CategoriapageComponent implements OnInit {
   private obtenerArticulos(idCat: number = this.idCat, tam: number = this.tam, url?) {
     this._articuloHttp.getArticulosByCat(idCat, tam, url).subscribe((resp: any) => {
       this.articulos = resp;
+      this.getNombreCategoria(idCat);
+    });
+  }
+
+  private getNombreCategoria(idCat: number) {
+    this._categoriaHttp.obtenerCategoriaNombre(idCat).subscribe((data: nombreCat) => {
+      this.nombreCategoria = data.nombre;
     });
   }
 }
