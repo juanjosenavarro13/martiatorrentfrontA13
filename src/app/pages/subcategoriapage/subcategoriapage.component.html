@@ -24,21 +24,21 @@
     <nav aria-label="Page navigation" *ngIf="articulos">
       <ul class="pagination justify-content-center">
         <li class="page-item">
-          <a class="page-link" href="/categoria/{{ idCat }}#top" (click)="paginacion('primera')">
+          <a class="page-link" href="/subcategoria/{{ idCat }}#top" (click)="paginacion('primera')">
             <span>&laquo;</span>
           </a>
         </li>
         <li class="page-item" *ngIf="articulos.prev_page_url">
-          <a class="page-link" href="/categoria/{{ idCat }}#top" (click)="paginacion('anterior')">Anterior</a>
+          <a class="page-link" href="/subcategoria/{{ idCat }}#top" (click)="paginacion('anterior')">Anterior</a>
         </li>
         <li class="page-item">
           <a class="page-link btn">{{ articulos.current_page }}</a>
         </li>
         <li class="page-item" *ngIf="articulos.next_page_url">
-          <a class="page-link" href="/categoria/{{ idCat }}#top" (click)="paginacion('siguiente')">Siguiente</a>
+          <a class="page-link" href="/subcategoria/{{ idCat }}#top" (click)="paginacion('siguiente')">Siguiente</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="/categoria/{{ idCat }}#top" (click)="paginacion('ultima')">
+          <a class="page-link" href="/subcategoria/{{ idCat }}#top" (click)="paginacion('ultima')">
             <span>&raquo;</span>
           </a>
         </li>

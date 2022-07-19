@@ -1,3 +1,4 @@
+import { SubcategoriapageComponent } from './pages/subcategoriapage/subcategoriapage.component';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'articulo/:id', component: ArticulopageComponent },
   { path: 'categoria/:id', component: CategoriapageComponent },
+  { path: 'subcategoria/:id', component: SubcategoriapageComponent },
   { path: 'login', component: LoginpageComponent },
   { path: 'registro', component: RegistropageComponent },
   { path: '**', component: ErrorComponent },

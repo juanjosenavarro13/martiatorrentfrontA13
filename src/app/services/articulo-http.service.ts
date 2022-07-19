@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class ArticuloHttpService {
   constructor(private _http: HttpClient) {}
 
-  public getListaAticulos(tam: number, url = null): Observable<articuloPaginateModel> {
+  getListaAticulos(tam: number, url = null): Observable<articuloPaginateModel> {
     let endpoint = environment.apiUrl + '/articulosPaginate/' + tam;
     if (url != null) {
       endpoint = url;
@@ -18,7 +18,7 @@ export class ArticuloHttpService {
     return this._http.get<articuloPaginateModel>(endpoint);
   }
 
-  public getArticulosByCat(idCat: number, tam: number, url = null): Observable<articuloPaginateModel> {
+  getArticulosByCat(idCat: number, tam: number, url = null): Observable<articuloPaginateModel> {
     let endpoint = environment.apiUrl + '/categoria/' + idCat + '/' + tam;
     if (url != null) {
       endpoint = url;
@@ -26,7 +26,15 @@ export class ArticuloHttpService {
     return this._http.get<articuloPaginateModel>(endpoint);
   }
 
-  public getArticulo(id: number): Observable<articuloModel> {
+  getArticulosBySubcat(idCat: number, tam: number, url = null): Observable<articuloPaginateModel> {
+    let endpoint = environment.apiUrl + '/subcategoria/' + idCat + '/' + tam;
+    if (url != null) {
+      endpoint = url;
+    }
+    return this._http.get<articuloPaginateModel>(endpoint);
+  }
+
+  getArticulo(id: number): Observable<articuloModel> {
     return this._http.get<articuloModel>(environment.apiUrl + '/articulo/' + id);
   }
 }
