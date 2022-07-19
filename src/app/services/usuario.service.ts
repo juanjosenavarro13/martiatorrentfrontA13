@@ -23,6 +23,10 @@ export class UsuarioService {
     localStorage.setItem('access_token', token);
   }
 
+  getToken() {
+    return localStorage.getItem('access_token');
+  }
+
   logOut() {
     this.logeado.next(false);
     localStorage.removeItem('access_token');

@@ -1,1 +1,67 @@
-<p>perfilpage works!</p>
+<div class="row g-3 justify-content-center">
+  <form #formPerfil="ngForm" (ngSubmit)="perfilUpdate(formPerfil.value)">
+    <div class="row">
+      <div class="col-6">
+        <div class="col-auto">
+          <label for="email" class="col-form-label">Email</label>
+        </div>
+        <div class="col-auto">
+          <input type="email" class="form-control" name="email" [(ngModel)]="usuario.email" #email="ngModel" disabled />
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="col-auto">
+          <label for="nick" class="col-form-label">Nick</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="usuario.nick"
+            name="nick"
+            #nick="ngModel"
+            required
+            [ngClass]="{ 'border-success': nick.valid && nick.touched }" />
+        </div>
+        <div class="col-auto" *ngIf="nick.touched && nick.invalid">
+          <span class="form-text text-danger"> *Campo obligatorio. </span>
+        </div>
+
+        <div class="col-auto">
+          <label for="nombre" class="col-form-label">Nombre</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="usuario.nombre"
+            name="nombre"
+            #nombre="ngModel"
+            required
+            [ngClass]="{ 'border-success': nombre.valid && nombre.touched }" />
+        </div>
+        <div class="col-auto" *ngIf="nombre.touched && nombre.invalid">
+          <span class="form-text text-danger"> *Campo obligatorio. </span>
+        </div>
+
+        <div class="col-auto">
+          <label for="apellidos" class="col-form-label">Apellidos</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="usuario.apellidos"
+            name="apellidos"
+            #apellidos="ngModel"
+            required
+            [ngClass]="{ 'border-success': apellidos.valid && apellidos.touched }" />
+        </div>
+        <div class="col-auto" *ngIf="apellidos.touched && apellidos.invalid">
+          <span class="form-text text-danger"> *Campo obligatorio. </span>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" [disabled]="formPerfil.invalid">Actualizar</button>
+      </div>
+    </div>
+  </form>
+</div>

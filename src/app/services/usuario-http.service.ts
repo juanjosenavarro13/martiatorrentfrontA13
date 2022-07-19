@@ -1,4 +1,4 @@
-import { usuarioLoginModel } from './../Models/usuarioModel';
+import { usuarioLoginModel, usuarioUpdateModel } from './../Models/usuarioModel';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -27,5 +27,17 @@ export class UsuarioHttpService {
       Authorization: bearer,
     });
     return this._http.post<usuarioModel>(environment.apiUrl + '/usuario/perfil', null, { headers: headers });
+  }
+
+  perfilUpdate(token: string, usuario: usuarioModel): Observable<usuarioUpdateModel> {
+    let bearer = `Bearer ${token}`;
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: bearer,
+    });
+    return this._http.post<usuarioUpdateModel>(environment.apiUrl + '/usuario/perfilUpdate', usuario, {
+      headers: headers,
+    });
   }
 }
