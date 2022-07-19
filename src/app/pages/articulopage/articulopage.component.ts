@@ -16,6 +16,7 @@ export class ArticulopageComponent implements OnInit {
   enlaces: enlaceModel[];
   loading: boolean;
   loadingEnlaces: boolean;
+  enlaces0: boolean;
   constructor(
     private rutaActiva: ActivatedRoute,
     private articuloHttp: ArticuloHttpService,
@@ -26,6 +27,7 @@ export class ArticulopageComponent implements OnInit {
     this.enlaces = [];
     this.loading = false;
     this.loadingEnlaces = false;
+    this.enlaces0 = false;
   }
 
   ngOnInit(): void {
@@ -46,8 +48,9 @@ export class ArticulopageComponent implements OnInit {
   private obtenerEnlaces(id: number) {
     this.enlaceHttp.obtenerEnlacesDelArticulo(id).subscribe((data: enlaceModel[]) => {
       this.enlaces = data;
-      if (data.length > 0) {
-        this.loadingEnlaces = true;
+      this.loadingEnlaces = true;
+      if (data.length === 0) {
+        this.enlaces0 = true;
       }
     });
   }

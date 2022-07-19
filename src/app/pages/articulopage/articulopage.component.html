@@ -26,7 +26,7 @@
           {{ articulo.contenido }}
         </p>
         <app-spinner *ngIf="!loadingEnlaces"></app-spinner>
-        <table class="table" *ngIf="enlaces && loadingEnlaces">
+        <table class="table" *ngIf="enlaces && loadingEnlaces && !enlaces0">
           <thead>
             <tr>
               <th scope="col">Titulo</th>
