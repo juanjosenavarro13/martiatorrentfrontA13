@@ -17,6 +17,7 @@ import { RegistropageComponent } from './pages/registropage/registropage.compone
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { SubcategoriapageComponent } from './pages/subcategoriapage/subcategoriapage.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { PerfilpageComponent } from './pages/perfilpage/perfilpage.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     LoginpageComponent,
     SubcategoriapageComponent,
     SpinnerComponent,
+    PerfilpageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
