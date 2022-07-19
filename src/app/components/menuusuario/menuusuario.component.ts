@@ -23,10 +23,15 @@ export class MenuusuarioComponent implements OnInit {
       this.usuario = usuario;
     });
     if (localStorage.getItem('access_token')) {
-      this.usuarioService.perfil().subscribe(data => {
-        this.usuarioService.setUsuario(data);
-        this.usuarioService.login();
-      });
+      this.usuarioService.perfil().subscribe(
+        data => {
+          this.usuarioService.setUsuario(data);
+          this.usuarioService.login();
+        },
+        error => {
+          localStorage.removeItem('access_token');
+        }
+      );
     }
   }
 
