@@ -1,4 +1,5 @@
-<div class="card mb-5" *ngIf="articulo">
+<app-spinner *ngIf="!articulo || !loading"></app-spinner>
+<div class="card mb-5" *ngIf="articulo && loading">
   <div class="card-header text-center">
     {{ articulo.created_at | date: 'dd-MM-yyyy' }}
     <small><a class="text-danger text-decoration-none" routerLink="/">Volver</a></small>
@@ -19,7 +20,8 @@
         <p class="card-text">
           {{ articulo.contenido }}
         </p>
-        <table class="table" *ngIf="tieneEnlaces">
+        <app-spinner *ngIf="!loadingEnlaces"></app-spinner>
+        <table class="table" *ngIf="enlaces && loadingEnlaces">
           <thead>
             <tr>
               <th scope="col">Titulo</th>
