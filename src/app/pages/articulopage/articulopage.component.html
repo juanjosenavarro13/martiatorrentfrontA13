@@ -54,8 +54,8 @@
 </div>
 
 <app-spinner *ngIf="!comentariosLoading"></app-spinner>
-<div *ngIf="comentarios && comentariosLoading">
-  <div class="card text-dark bg-light mb-3" *ngFor="let c of comentarios">
+<div *ngIf="comentarios && comentariosLoading" class="mb-5">
+  <div class="card text-dark bg-light mb-3" *ngFor="let c of comentarios.comentarios">
     <div class="card-header text-end">{{ c.created_at | date: 'dd-MM-yyyy HH:mm' }}</div>
     <div class="card-body">
       <h5 class="card-title">{{ c.nick_usuario }}</h5>
@@ -63,5 +63,10 @@
         Some quick example text to build on the card title and make up the bulk of the card's content.
       </p>
     </div>
+  </div>
+  <div class="d-grid gap-2 col-3 mx-auto">
+    <button class="btn btn-primary btn-sm center-block" *ngIf="comentarios.total >= comentariosTam" (click)="vermas()">
+      ver mas
+    </button>
   </div>
 </div>

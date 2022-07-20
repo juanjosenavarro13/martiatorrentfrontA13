@@ -1,4 +1,8 @@
 export class comentarioModel {
+  constructor(public comentarios: comentarios[], public total: number) {}
+}
+
+export class comentarios {
   constructor(
     public id: number,
     public contenido: string,

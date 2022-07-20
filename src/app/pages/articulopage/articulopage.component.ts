@@ -16,11 +16,12 @@ export class ArticulopageComponent implements OnInit {
   id: number;
   articulo: articuloModel;
   enlaces: enlaceModel[];
-  comentarios: comentarioModel[];
+  comentarios: comentarioModel;
   loading: boolean;
   loadingEnlaces: boolean;
   enlaces0: boolean;
   comentariosLoading: boolean;
+  comentariosTam: number;
   constructor(
     private rutaActiva: ActivatedRoute,
     private articuloHttp: ArticuloHttpService,
@@ -28,13 +29,14 @@ export class ArticulopageComponent implements OnInit {
     private _usuarioHttp: UsuarioHttpService
   ) {
     this.articulo = {} as articuloModel;
-    this.comentarios = [];
+    this.comentarios = {} as comentarioModel;
     this.id = 0;
     this.enlaces = [];
     this.loading = false;
     this.loadingEnlaces = false;
     this.enlaces0 = false;
     this.comentariosLoading = false;
+    this.comentariosTam = 5;
   }
 
   ngOnInit(): void {
@@ -48,7 +50,7 @@ export class ArticulopageComponent implements OnInit {
     this.articuloHttp.getArticulo(id).subscribe((articulo: articuloModel) => {
       this.articulo = articulo;
       this.obtenerEnlaces(this.id);
-      this.obtenerCopmentarios(this.id);
+      this.obtenerCopmentarios(this.id, this.comentariosTam);
       this.loading = true;
     });
   }
@@ -63,11 +65,16 @@ export class ArticulopageComponent implements OnInit {
     });
   }
 
-  private obtenerCopmentarios(id) {
-    this._usuarioHttp.obtenerComentariosArticulo(id).subscribe(data => {
+  private obtenerCopmentarios(id, tam) {
+    this._usuarioHttp.obtenerComentariosArticulo(id, tam).subscribe(data => {
       this.comentarios = data;
       this.comentariosLoading = true;
     });
+  }
+
+  vermas() {
+    this.comentariosTam += 5;
+    this.obtenerCopmentarios(this.id, this.comentariosTam);
   }
 
   sumarDescarga(id: number) {

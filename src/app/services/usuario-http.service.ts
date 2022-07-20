@@ -42,7 +42,7 @@ export class UsuarioHttpService {
     });
   }
 
-  obtenerComentariosArticulo(id: number): Observable<comentarioModel[]> {
-    return this._http.get<comentarioModel[]>(environment.apiUrl + '/comentariosDelArticulo/' + id);
+  obtenerComentariosArticulo(id: number, tam: number): Observable<comentarioModel> {
+    return this._http.get<comentarioModel>(environment.apiUrl + '/comentariosDelArticulo/' + id + '/' + tam);
   }
 }
