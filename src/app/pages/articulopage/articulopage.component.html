@@ -66,7 +66,7 @@
   </div>
   <div class="d-grid gap-2 col-3 mx-auto">
     <button class="btn btn-primary btn-sm center-block" *ngIf="comentarios.total >= comentariosTam" (click)="vermas()">
-      ver mas
+      ver mas {{ comentarios.total - comentariosTam }}
     </button>
   </div>
 </div>
