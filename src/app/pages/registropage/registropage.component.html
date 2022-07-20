@@ -105,6 +105,9 @@
             name="nick"
             #nick="ngModel"
             required
+            [ngClass]="{
+              'border-danger': nick.invalid && nick.touched
+            }"
             [ngClass]="{ 'border-success': nick.valid && nick.touched }" />
         </div>
         <div class="col-auto" *ngIf="nick.touched && nick.invalid">
@@ -122,6 +125,9 @@
             name="nombre"
             #nombre="ngModel"
             required
+            [ngClass]="{
+              'border-danger': nombre.invalid && nombre.touched
+            }"
             [ngClass]="{ 'border-success': nombre.valid && nombre.touched }" />
         </div>
         <div class="col-auto" *ngIf="nombre.touched && nombre.invalid">
@@ -139,6 +145,9 @@
             name="apellidos"
             #apellidos="ngModel"
             required
+            [ngClass]="{
+              'border-danger': apellidos.invalid && apellidos.touched
+            }"
             [ngClass]="{ 'border-success': apellidos.valid && apellidos.touched }" />
         </div>
         <div class="col-auto" *ngIf="apellidos.touched && apellidos.invalid">
