@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { usuarioModel, usuarioRegistroModel } from '../Models/usuarioModel';
+import { comentarioModel } from '../Models/comentarioModel';
 
 @Injectable({
   providedIn: 'root',
@@ -39,5 +40,9 @@ export class UsuarioHttpService {
     return this._http.post<usuarioUpdateModel>(environment.apiUrl + '/usuario/perfilUpdate', usuario, {
       headers: headers,
     });
+  }
+
+  obtenerComentariosArticulo(id: number): Observable<comentarioModel[]> {
+    return this._http.get<comentarioModel[]>(environment.apiUrl + '/comentariosDelArticulo/' + id);
   }
 }
